@@ -11,25 +11,56 @@ class Person
         @hygiene = hygiene
     end
     
-    def clean?
-        if @hygiene > 10 
-            @hygiene = 10 
-        elsif @hygiene < 0 
-            @hygiene = 0
+    # def clean?
+    #     if @hygiene > 10 
+    #         @hygiene = 10 
+    #     elsif @hygiene < 0 
+    #         @hygiene = 0
+    #     else
+    #         self.hygiene > 7 
+    #     end
+    # end
+
+    # def happy?
+    #     if @happiness > 10 
+    #         @happiness = 10 
+    #     elsif @happiness < 0 
+    #         @happiness = 0
+    #     else 
+    #         self.happiness > 7
+    #     end
+    # end
+
+
+
+    def happiness
+        if @happiness > 10
+            10
+        elsif @happiness < 0
+            0
         else
-            self.hygiene > 7 
+            @happiness
+        end
+    end
+
+    def hygiene
+        if @hygiene > 10
+            10
+        elsif @hygiene < 0
+            0
+        else
+            @hygiene
         end
     end
 
     def happy?
-        if @happiness > 10 
-            @happiness = 10 
-        elsif @happiness < 0 
-            @happiness = 0
-        else 
-            self.happiness > 7
-        end
+        happiness>7
     end
+
+    def clean?
+        hygiene>7
+    end
+
 
     def get_paid(amount)
         self.bank_account += amount
@@ -74,8 +105,8 @@ end
 
 person1 = Person.new("Daniel")
 # puts person1.inspect
-person1.hygiene = -5
-person1.happiness = 11
+person1.hygiene = -100
+person1.happiness = 100
 person1.clean?
 person1.happy?
 person1.get_paid(10)
@@ -84,7 +115,6 @@ puts person1.hygiene
 
 friend = Person.new("Moses")
 puts person1.call_friend(friend)
-binding.pry
-    
+
 
 
