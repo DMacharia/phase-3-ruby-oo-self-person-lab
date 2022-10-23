@@ -12,9 +12,9 @@ class Person
     end
     
     # def clean?
-    #     if @hygiene > 10 
+    #     if hygiene > 10 
     #         @hygiene = 10 
-    #     elsif @hygiene < 0 
+    #     elsif hygiene < 1 
     #         @hygiene = 0
     #     else
     #         self.hygiene > 7 
@@ -22,9 +22,9 @@ class Person
     # end
 
     # def happy?
-    #     if @happiness > 10 
+    #     if happiness > 10 
     #         @happiness = 10 
-    #     elsif @happiness < 0 
+    #     elsif happiness < 1 
     #         @happiness = 0
     #     else 
     #         self.happiness > 7
@@ -33,32 +33,32 @@ class Person
 
 
 
-    def happiness
-        if @happiness > 10
-            10
-        elsif @happiness < 0
-            0
+    def happiness= happiness 
+        if happiness > 10
+            @happiness =     10
+        elsif happiness < 1
+            @happiness = 0
         else
-            @happiness
+            @happiness= happiness
         end
     end
 
-    def hygiene
-        if @hygiene > 10
-            10
-        elsif @hygiene < 0
-            0
+    def hygiene= hygiene
+        if hygiene > 10
+            @hygiene = 10
+        elsif hygiene < 1
+            @hygiene = 0
         else
-            @hygiene
+            @hygiene= hygiene
         end
     end
 
     def happy?
-        happiness>7
+        self.happiness>7
     end
 
     def clean?
-        hygiene>7
+        self.hygiene>7
     end
 
 
